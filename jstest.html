@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <title>Javascript Testing Field</title>
+    <link href="stupid1.css" rel="stylesheet">
+	<!--link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" 
+	rel="stylesheet"-->
+    <meta charset="utf-8">
+	
+  </head>
+  
+  <body>
+    <header class="container center padded blue">
+	  <div class="threequarters">
+	  <a href="index.html"><font color="white">Zhihao Hong's personal webpage</font></a>
+	  
+	  <ul class="menu right">
+        <li><a class="black">Menu</a>
+          <ul>
+            <li><a>Aaa</a></li>
+            <li><a>Bbb</a></li>
+            <li><a>Ccc</a></li>
+          </ul>              
+        </li>
+        <!--li style="width:100px"></li!-->
+      </ul>
+	  
+	  <h2 class="padded"><font>Javascript Testing Field</font></h2>
+	  </div>
+	</header>
+	
+	<div class="padded container center aqua">
+	  <div class="threequarters">
+	    <a class="btn rounded navy" 
+	    href="index.html"><h6>Home</h6></a>
+	    <a class="btn rounded navy pulse" 
+	    href="comics_index.html"><h6>Doghead comics</h6></a>
+	    <a class="btn rounded navy" 
+	    href="raccoon_comics.html"><h6>Raccoon comics</h6></a>
+	    <a class="btn rounded navy" 
+	    href="gallery_armored.html"><h6>gallery</h6></a>
+	    <a class="btn rounded navy" 
+	    href="makeMoney.html"><h6>JS</h6></a>
+		<a class="btn rounded navy" 
+	    href="https;//github.com/dogheadslug"><h6>github</h6></a>
+	  </div>
+	</div>
+	
+	<div class="container center padded">
+	<div class="container center threequarters">
+	  <div class=" padded third">
+	    <p class="padded silver">file pic</p>
+      </div>
+	  <div class=" padded twothirds">
+	    <div class="padded silver">
+	      <h3> click on a button will show different set of images</h3>
+
+		  <br>
+		  
+		  <button class="btn round navy large" onclick="showSet1()">set 1</button>
+		  <button class="btn round navy large" onclick="showSet2()">set 2</button>
+		  <button class="btn round navy large" onclick="showSet3()">set 3</button>
+		  
+	  	<table class="center">
+
+        <tr>
+		<th><img class="half" id="img_slot1"></th>
+		<th><p class="fill" id="txt_slot1"></p></th></tr>
+		<br>
+		
+		<tr>
+		<th><img id="img_slot2" ></th>
+		<th><p id="txt_slot2" style="float: left"></p></th>
+		<br>
+		
+		<tr>
+		<th><img id="img_slot3" ></th>
+		<th><p id="txt_slot3" style="float: left"></p></th>
+		<br>
+		</table>
+	
+		  <p>...</p>
+		  <div id="div1"><ul id="imgList"></ul></div>
+		  
+		</div>
+      </div>
+	</div>
+	</div>
+	
+	<script>
+	//var showing = false;
+	//var list = document.getElementById()
+	function loadXMLDoc(id) {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				loadData(this, id);
+			}
+		};
+		xmlhttp.open("GET", "kresge.xml", true);
+		xmlhttp.send();
+	}
+
+	function showSet1(){
+
+	}
+	
+	function showSet2(){
+
+	}
+	
+	function showSet3(){
+		//var ary = [1, 3, 4, 2, 1];//an array of data id
+	    //getDataArray(ary);
+		loadXMLDoc(1);
+	}
+	
+	/*function getDaraArray(ary){
+		for (var x = 0; x < ary.length; x++){
+			getData(xml, )
+		}
+	}*/
+	
+	//https://www.w3schools.com/xml/tryit.asp?filename=tryxml_display_table
+	//XML function, get actual data from XML database
+	function loadData(xml, id){
+		var i;
+		var xmlDoc = xml.responseXML;
+		var table="<tr><th>Artist</th><th>Title</th></tr>";
+		var x = xmlDoc.getElementsByTagName("CD");
+		for (i = 0; i <x.length; i++) { 
+			table += "<tr><td>" +
+			x[i].getElementsByTagName("imgsrc")[0].childNodes[0].nodeValue +
+			"</td><td>" +
+			x[i].getElementsByTagName("dscrpt")[0].childNodes[0].nodeValue +
+			"</td></tr>";
+		}
+		document.getElementById("demo").innerHTML = table;
+	}
+	
+	
+	
+	</script>
+	
+	<div>
+	
+	</div>
